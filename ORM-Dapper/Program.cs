@@ -7,7 +7,7 @@ namespace ORM_Dapper
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -32,7 +32,20 @@ namespace ORM_Dapper
             {
                 Console.WriteLine($"ID: {dep.DepartmentID} | Name: {dep.Name}");
             }
+            var prodRepo = new ProductRepo(conn);
 
+            //prodRepo.InsertProduct("Fallout: New Vegas", 30.00, 1);
+
+            //prodRepo.UpdateProductName(940, "Artichoke");
+
+            prodRepo.DeleteProduct(940);
+
+            var products = prodRepo.GetAllProducts();
+
+            foreach(var product in products)
+            {
+                Console.WriteLine($"Name: {product.Name} | Price: {product.Price} | Category: {product.CategoryID} | {product.ProductId}");
+            }
 
         }
 
