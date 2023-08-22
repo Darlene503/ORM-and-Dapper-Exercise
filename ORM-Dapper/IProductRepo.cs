@@ -9,7 +9,7 @@ namespace ORM_Dapper
     public interface IProductRepo
     {
         public IEnumerable<Product> GetAllProducts();
-        public void InsertProducts(string name, double price, int categoryID);
+        public void InsertProduct(string name, double price, int categoryID);
     }
 
     

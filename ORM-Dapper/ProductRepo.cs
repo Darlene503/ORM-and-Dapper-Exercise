@@ -22,7 +22,7 @@ namespace ORM_Dapper
             return _connection.Query<Product>("SELECT * FROM Products;");
         }
 
-        public void IsertProduct(string name, double price, int categoryID)
+        public void InsertProduct(string name, double price, int categoryID)
         {
             _connection.Execute("INSERT INTO Products (Name,Price, CategoryID) VALUES (@name, @price, @categoryID);", new { name = name, price = price, categoryID = categoryID });
         }
